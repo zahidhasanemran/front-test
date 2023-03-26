@@ -6,15 +6,15 @@ import {
   FormLabel,
   Skeleton,
   TextField,
-} from "@mui/material";
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useMutation, useQuery } from "react-query";
-import { useNavigate, useParams } from "react-router-dom";
-import Footer from "../../components/inc/Footer";
-import Header from "../../components/inc/Header";
-import { AuthContext } from "../../provider/AuthProvider";
+} from "@mui/material"
+import axios from "axios"
+import { useContext, useEffect, useState } from "react"
+import { useForm } from "react-hook-form"
+import { useMutation, useQuery } from "react-query"
+import { useNavigate, useParams } from "react-router-dom"
+import Footer from "../../components/inc/Footer"
+import Header from "../../components/inc/Header"
+import { AuthContext } from "../../provider/AuthProvider"
 
 const initErrors = {
   name: null,
@@ -112,7 +112,7 @@ function BookUpdate() {
                         {/* <form onSubmit={submitForm}> */}
                         <form onSubmit={handleSubmit((data) => submitForm())}>
                           <FormControl fullWidth sx={{ mb: 2 }}>
-                            <FormLabel>Name </FormLabel>
+                            <FormLabel>Book Name </FormLabel>
                             <TextField
                               type="text"
                               placeholder="Enter Name "

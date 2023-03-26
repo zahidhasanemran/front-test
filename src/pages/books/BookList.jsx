@@ -12,14 +12,14 @@ import {
   TableRow,
   TextField,
   Toolbar,
-} from "@mui/material";
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
-import Footer from "../../components/inc/Footer";
-import Header from "../../components/inc/Header";
-import { AuthContext } from "../../provider/AuthProvider";
+} from "@mui/material"
+import axios from "axios"
+import { useContext, useEffect, useState } from "react"
+import { useQuery } from "react-query"
+import { Link } from "react-router-dom"
+import Footer from "../../components/inc/Footer"
+import Header from "../../components/inc/Header"
+import { AuthContext } from "../../provider/AuthProvider"
 
 function BookList() {
   const auth = useContext(AuthContext);
@@ -76,7 +76,6 @@ function BookList() {
       })
       .catch((error) => {});
   }
-  console.log(isRefetching);
   return (
     <>
       <Header />
@@ -119,7 +118,7 @@ function BookList() {
                       <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                           <TableRow>
-                            <TableCell>Name</TableCell>
+                            <TableCell>Book Name</TableCell>
                             <TableCell align="right">Edition</TableCell>
                             <TableCell align="right">Author</TableCell>
                             <TableCell align="right">Language</TableCell>

@@ -1,8 +1,8 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
-import { AuthContext } from "../provider/AuthProvider";
-import { removeTokenFromCache } from "../utils/localStorage";
+import axios from "axios"
+import { useContext, useEffect, useState } from "react"
+import { Navigate } from "react-router-dom"
+import { AuthContext } from "../provider/AuthProvider"
+import { removeTokenFromCache } from "../utils/localStorage"
 
 function Authenticated(props) {
   const { children, role } = props;

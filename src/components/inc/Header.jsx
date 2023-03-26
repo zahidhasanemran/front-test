@@ -1,10 +1,10 @@
-import { Box, Button, CircularProgress, Toolbar } from "@mui/material";
-import axios from "axios";
-import { useContext } from "react";
-import { useMutation } from "react-query";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider";
-import { removeTokenFromCache } from "../../utils/localStorage";
+import { Box, Button, CircularProgress, Toolbar } from "@mui/material"
+import axios from "axios"
+import { useContext } from "react"
+import { useMutation } from "react-query"
+import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../../provider/AuthProvider"
+import { removeTokenFromCache } from "../../utils/localStorage"
 const Header = () => {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
@@ -46,14 +46,12 @@ const Header = () => {
                 <p className="nav-item">
                   <Link to={`/login`}>Login</Link>
                 </p>
-                <p className="nav-item">
-                  <Link to={`/register`}>Register</Link>
-                </p>
+                
               </>
             ) : (
               <>
                 <p className="nav-item">
-                  <Link to={`/books`}>Books</Link>
+                  <Link to={`/books`}>Users</Link>
                 </p>
                 <p className="nav-item">
                   Hi {auth.user.username},{" "}

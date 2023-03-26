@@ -5,45 +5,47 @@ import {
   FormControl,
   FormLabel,
   TextField,
-} from "@mui/material";
-import axios from "axios";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
-import { Link } from "react-router-dom";
-import Footer from "../components/inc/Footer";
-import Header from "../components/inc/Header";
-import { setTokenToLocalStorage } from "../utils/localStorage";
-function Login() {
-  const { register, handleSubmit } = useForm();
-  const [message, setMessage] = useState(null);
-  const [errors, setErrors] = useState({
+} from "@mui/material"
+import axios from "axios"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { useMutation } from "react-query"
+import { Link, useNavigate } from "react-router-dom"
+import Footer from "../components/inc/Footer"
+import Header from "../components/inc/Header"
+import { setTokenToLocalStorage } from "../utils/localStorage"
+function Register() {
+  const initErrors = {
+    name: null,
     email: null,
     password: null,
+  };
+  const [errors, setErrors] = useState(initErrors);
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      // name: "zhemran",
+      // username: "zhemran",
+      // email: "zh@gma.com",
+      // password: "123456",
+    }
   });
-  const mutation = useMutation(async (formData) => {
+  const navigate = useNavigate();
+
+  const mutation = useMutation((formData) => {
     return axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, formData)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, formData)
       .then((response) => {
         console.log(response.data);
-        setTokenToLocalStorage(response?.data?.data?.token);
-        console.log(response?.data?.data?.token);
-        window.location = "/books";
+        setTokenToLocalStorage(response?.data?.token);
+        navigate("/books");
       })
       .catch((error) => {
-        if (error?.response?.data?.errors?.length) {
-          setErrors(error?.response?.data?.errors);
-        }
-        setMessage(error?.response?.data?.message);
+        setErrors(error?.response?.data?.errors);
       });
   });
 
   const submitForm = (data) => {
-    setErrors({
-      email: null,
-      password: null,
-    });
-    setMessage(null);
+    setErrors(initErrors);
     mutation.mutate(data);
   };
 
@@ -53,17 +55,22 @@ function Login() {
       <div className="content-wrapper">
         <section className="content-section">
           <div className="auth-container">
-            <Card sx={{ my: 3 }}>
+            <Card sx={{ mb: 3 }}>
               <div className="contact-area">
-                <h2>Login to Your Account!</h2>
+                <h2>Create An Account</h2>
                 <div>
-                  {message ? (
-                    <div className="alert alert-danger">{message}</div>
-                  ) : (
-                    ""
-                  )}
                   <div className="left-area">
                     <form onSubmit={handleSubmit((data) => submitForm(data))}>
+                      <FormControl sx={{ mb: 2 }} fullWidth>
+                        <FormLabel>Your Name</FormLabel>
+                        <TextField
+                          placeholder="Enter Name"
+                          {...register("name")}
+                          error={errors?.name?.length}
+                          helperText={errors?.name?.[0]}
+                        />
+                      </FormControl>
+                      <br />
                       <FormControl fullWidth sx={{ mb: 2 }}>
                         <FormLabel>Your Email </FormLabel>
                         <TextField
@@ -72,6 +79,16 @@ function Login() {
                           {...register("email")}
                           error={errors?.email?.length}
                           helperText={errors?.email?.[0]}
+                        />
+                      </FormControl>
+                      <FormControl fullWidth sx={{ mb: 2 }}>
+                        <FormLabel>Your Username</FormLabel>
+                        <TextField
+                          type="text"
+                          placeholder="Enter Your Username "
+                          {...register("username")}
+                          error={errors?.username?.length}
+                          helperText={errors?.username?.[0]}
                         />
                       </FormControl>
                       <br />
@@ -88,15 +105,17 @@ function Login() {
 
                       <br />
                       <Button
-                        sx={{ px: 5, mt: 3, color: "#fff" }}
-                        className="btn btn-success btn-corner ml-auto"
+                        sx={{ px: 5, my: 3, color: "#fff" }}
+                        className="btn btn-corner ml-auto"
                         type="submit"
+                        color="primary"
+
                         disabled={mutation.isLoading}
                       >
                         {mutation.isLoading ? (
                           <CircularProgress size={20} />
                         ) : (
-                          "Login"
+                          "Create"
                         )}
                       </Button>
 
@@ -106,7 +125,7 @@ function Login() {
                       <p id="nav" className="over-h">
                         Don't have an account yet?
                         <span style={{ marginLeft: "10px" }}>
-                          <Link to="/register">Register</Link>
+                          <Link to="/login">Login</Link>
                         </span>
                       </p>
                     </form>
@@ -122,4 +141,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;

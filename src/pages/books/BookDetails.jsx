@@ -4,14 +4,14 @@ import {
   TableCell,
   TableContainer,
   TableRow,
-} from "@mui/material";
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
-import Footer from "../../components/inc/Footer";
-import Header from "../../components/inc/Header";
-import { AuthContext } from "../../provider/AuthProvider";
+} from "@mui/material"
+import axios from "axios"
+import { useContext, useEffect, useState } from "react"
+import { useQuery } from "react-query"
+import { useParams } from "react-router-dom"
+import Footer from "../../components/inc/Footer"
+import Header from "../../components/inc/Header"
+import { AuthContext } from "../../provider/AuthProvider"
 
 function BookDetails() {
   const { id } = useParams();
@@ -56,7 +56,7 @@ function BookDetails() {
                     <Table aria-label="simple table">
                       <TableRow>
                         <TableCell component="th" scope="row">
-                          Name
+                          Book Name
                         </TableCell>
                         <TableCell component="th" scope="row">
                           {book.name}

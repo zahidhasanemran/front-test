@@ -1,17 +1,17 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Authenticated from "./middleware/Authenticated";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Authenticated from "./middleware/Authenticated"
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
 
-import { QueryClientProvider } from "react-query";
-import queryClient from "./config/queyClient.config";
-import BookCreate from "./pages/books/BookCreate";
-import BookDetails from "./pages/books/BookDetails";
-import BookList from "./pages/books/BookList";
-import BookUpdate from "./pages/books/BookUpdate";
-import ErrorPage from "./pages/ErrorPage";
-import AuthContextProvider from "./provider/AuthProvider";
+import { QueryClientProvider } from "react-query"
+import queryClient from "./config/queyClient.config"
+import ErrorPage from "./pages/ErrorPage"
+import BookCreate from "./pages/books/BookCreate"
+import BookDetails from "./pages/books/BookDetails"
+import BookList from "./pages/books/BookList"
+import BookUpdate from "./pages/books/BookUpdate"
+import AuthContextProvider from "./provider/AuthProvider"
 
 function App() {
   return (

@@ -5,15 +5,15 @@ import {
   FormControl,
   FormLabel,
   TextField,
-} from "@mui/material";
-import axios from "axios";
-import { useContext, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
-import Footer from "../../components/inc/Footer";
-import Header from "../../components/inc/Header";
-import { AuthContext } from "../../provider/AuthProvider";
+} from "@mui/material"
+import axios from "axios"
+import { useContext, useState } from "react"
+import { useForm } from "react-hook-form"
+import { useMutation } from "react-query"
+import { useNavigate } from "react-router-dom"
+import Footer from "../../components/inc/Footer"
+import Header from "../../components/inc/Header"
+import { AuthContext } from "../../provider/AuthProvider"
 
 const initErrors = {
   name: null,
@@ -62,7 +62,7 @@ function BookCreate() {
       <div className="content-wrapper">
         <section className="content-section">
           <div className="auth-container">
-            <h3>Create Book</h3>
+            <h3>Create a New Book</h3>
             <Card sx={{ my: 3 }}>
               <div className="contact-area">
                 <div>
@@ -74,7 +74,7 @@ function BookCreate() {
                   <div className="left-area">
                     <form onSubmit={handleSubmit((data) => submitForm(data))}>
                       <FormControl fullWidth sx={{ mb: 2 }}>
-                        <FormLabel>Name </FormLabel>
+                        <FormLabel>Book Name </FormLabel>
                         <TextField
                           type="text"
                           placeholder="Enter Name "
