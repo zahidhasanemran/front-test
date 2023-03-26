@@ -8,7 +8,8 @@ This system is Developed with following technology..
 **NodeJS
 
 ## Visit apps
-- Frontend https://front-test-gilt.vercel.app/register
+- Frontend https://front-test-gilt.vercel.app
+- Backend  https://backend-test.herokuapp.com
 
 ## Process to install the System 
 
